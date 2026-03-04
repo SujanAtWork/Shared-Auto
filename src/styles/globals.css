@@ -1,0 +1,132 @@
+/* src/styles/globals.css */
+
+/* 1. Google Fonts — @import MUST be the very first statement */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* 2. Tailwind layers — must come after @import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. CSS variables */
+:root {
+  --color-yellow:        #facc15;
+  --color-yellow-hover:  #fde047;
+  --color-bg:            #0a0a0a;
+  --color-surface:       #18181b;
+  --color-border:        #27272a;
+  --font-display:        'Bebas Neue', sans-serif;
+  --font-body:           'DM Sans', sans-serif;
+  --font-mono:           'JetBrains Mono', monospace;
+}
+
+/* 4. Base resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-body);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 5. Font utility classes */
+.font-display { font-family: var(--font-display); letter-spacing: 0.04em; }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* 6. Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0;   }
+}
+@keyframes tick {
+  0%, 100% { transform: scaleY(1);   }
+  50%       { transform: scaleY(0.4); }
+}
+@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* 7. Animation utility classes */
+.fade-up  { animation: fadeUp   0.45s ease both; }
+.slide-in { animation: slide-in 0.35s cubic-bezier(0.22, 0.68, 0, 1.2) both; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, #facc15 30%, #fff 50%, #facc15 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* 8. Component helpers */
+.ride-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.ride-card:hover { transform: translateY(-3px); }
+.ride-card:hover .card-arrow { transform: translateX(4px); }
+.card-arrow { transition: transform 0.2s ease; }
+
+.pulse-dot { position: relative; }
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #facc15;
+  animation: pulse-ring 1.4s ease-out infinite;
+}
+
+.tab-active { position: relative; }
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 2px;
+  background: #facc15;
+  border-radius: 1px;
+}
+
+.badge-pulse { animation: tick 1.8s ease-in-out infinite; }
+
+/* 9. Noise overlay */
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* 10. Form focus rings */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #facc15 !important;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.15);
+}
+
+/* 11. Scrollbar */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #facc15; border-radius: 3px; }

@@ -1,77 +1,16 @@
-# 🚖 Shared Auto
+# React + Vite
 
-Shared Auto is a smart auto-rickshaw sharing platform designed specifically for students.  
-The platform helps students connect with others traveling to the same destination (like colleges), reducing travel costs and improving daily commuting efficiency.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 📌 Problem Statement
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Daily auto-rickshaw commuting is:
-- Expensive for individual students
-- Unorganized and inefficient
-- Environmentally unfriendly due to underutilized rides
-- Time-consuming during peak hours
+## React Compiler
 
-Shared Auto solves this by enabling intelligent ride-sharing among students traveling to common destinations.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the ESLint configuration
 
-## 🎯 Objectives
-
-- Reduce commuting cost for students
-- Optimize auto seat utilization
-- Enable smart route matching
-- Provide safer and verified student-only ride connections
-- Reduce traffic congestion and fuel consumption
-
----
-
-## 🧠 Key Features
-
-### 👤 User Authentication
-- Student registration & login
-- College email verification (optional)
-- Secure authentication
-
-### 📍 Smart Route Matching
-- Match students heading to the same or nearby destinations
-- Optimize grouping based on:
-  - Pickup proximity
-  - Time slots
-  - Destination similarity
-
-### 💰 Cost Splitting
-- Automatic fare division among passengers
-- Transparent pricing logic
-
-### 📅 Ride Scheduling
-- Book instant rides
-- Schedule recurring college rides
-
-### 🔐 Safety Features
-- Verified student profiles
-- Contact visibility only after match
-- Rating system (future scope)
-
----
-
-## 🛠️ Tech Stack (Planned)
-
-### Frontend
-- React
-- Tailwind CSS 
-
-### Backend
-- Node.js
-- Express.js
-
-### Database
-- PostgreSQL
-
-### Deployment
-- Render / Railway / VPS
-
----
-
-## 🏗️ Project Structure (Example)
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
